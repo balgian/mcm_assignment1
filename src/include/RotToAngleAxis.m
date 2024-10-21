@@ -16,7 +16,7 @@ function [h,theta] = RotToAngleAxis(R)
     if any([3 3] ~= size(R))
         error("R is not a 3x3 matrix.")
     end
-    if ((det(R) ~= 1) || any(R * R' ~= I,"all"))
+    if ((det(R) - 1 > 1e-10) || any(abs(R * R' - I) > 1e-10,"all"))
         error("R can't be a rotation matrix.")
     end
 
