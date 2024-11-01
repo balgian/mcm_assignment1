@@ -1,0 +1,60 @@
+\section{Exercise 2} \label{P2}
+
+\subsection{Q2.1}
+\label{subsec::q12}
+The \textit{RotToAngleAxis} function takes $\mathbf{R}$ and computes $\mathbf{h}$ and $\theta$. Before computing $\mathbf{R}$ were done three preliminary checks: $\mathbf{R}$ must be a $3\times 3$ matrix, $\det \mathbf{R} = 1$, and $\mathbf{R}\mathbf{R}^T = \mathbf{I}_{3\times 3}$.
+Due to prevent floating point, e.g. Subsection \ref{subsec::q23}, was important implementing a tolerance for the computation of $\det \mathbf{R}$ and $\mathbf{R}\mathbf{R}^T = \mathbf{I}_{3\times 3}$\space, we have chosen a value of $10^{-10}$. Considering the
+\begin{gather*}
+	\text{Tr} R = \text{Tr}(\mathbf{I}_{3\times 3} + \sin{\theta}[\mathbf{h}\times] + (1 - \cos \theta)[\mathbf{h}\times]^2) = 1 + 2 \cos \theta \\
+	\Rightarrow \theta = \arccos \Bigg ( \frac{\text{Tr} R -1}{2} \Bigg )
+\end{gather*}
+and the \textit{axial vector}
+\begin{gather*}
+	\mathbf{a} = \sin \theta \cdot \mathbf h = \text{Vex}\Bigg (\frac{\mathbf{R}\mathbf{R}^T}{2} \Bigg ) \\
+	\Rightarrow \mathbf{h} = \frac{\mathbf{a}}{\sin \theta}
+\end{gather*}
+Notice that $theta$ could be equal to zero or $\pi$:
+\begin{itemize}
+	\item $\theta = 0$: in this case $\mathbf{h}$ can be arbitrary than we decided to rise an error.
+	\item $\theta = \pi$: this represent a rotation of $180$-degree around one of the axes. In order to find $\mathbf{h}$, the script compute one
+	\begin{equation*}
+		h_i = \pm\sqrt{\frac{r_{ii}+1}{2}} \quad i \in \mathbb{N} \smallsetminus \{0\}, i \leq 3
+	\end{equation*}
+	Determinate the signs of other components $h_j$ ($j \in \mathbb{N} \smallsetminus \{0\}, j \leq 3$, $i\neq j$)
+	 \begin{equation*}
+	 	h_j = \text{sgn}(h_i) \text{sgn} (r_{ij})\sqrt{\frac{r_{jj}+1}{2}}
+	 \end{equation*}
+	 This let us to find the two possible configurations of the vector $\mathbf{h}$.
+\end{itemize}
+\subsection{Q2.2} 
+The rotation matrix
+\begin{equation*}
+	R = \begin{pmatrix}
+        1& 0 & 0 \\
+        0 & 0 & -1 \\
+        0 & 1 & 0
+    \end{pmatrix}
+\end{equation*}
+rappresents a rotation around $x$-axis. In fact, the function returns $\mathbf{h} = [1,0,0]^T$ and $\theta = \frac{\pi}{2}$.
+\subsection{Q2.3} \label{subsec::q23}
+In this case the rotation is around the $z$-axis, as show in the rotation matrix
+\begin{equation*}
+	R = \begin{pmatrix}
+		\frac{1}{2}& -\frac{\sqrt{3}}{2} & 0 \\
+		\frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}
+\end{equation*}
+Since it’s clear that $\arccos(\frac{1}{2})=\arcsin(\frac{\sqrt{3}}{2})= \frac{\pi}{3}$, then $\mathbf{h} = [0,0,1]^T$ and $\theta = \frac{\pi}{3}$. 
+\subsection{Q2.3}
+In the third case, $R = I_{3\times 3}$, it means there is no rotation, then $\mathbf{h}$ is arbitrary.
+\subsection{Q2.4}
+With the rotation matrix 
+\begin{equation*}
+	R = \begin{pmatrix}
+		-1& 0 & 0 \\
+		0 & -1 & 0 \\
+		0 & 0 & 1
+	\end{pmatrix}
+\end{equation*}
+the angle of rotation $\theta = \pi$, this mean that there are two possible configurations of the vector $\mathbf{h} \rightarrow \mathbf{h}_+= [0,0,1]^T$, $\mathbf{h}_-= [0,0,-1]^T$.

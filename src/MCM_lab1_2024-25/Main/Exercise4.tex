@@ -1,0 +1,48 @@
+\section{Exercise 4} \label{P4}
+
+\subsection{Q4.1}
+The \textit{RotToYPR} function compute a possible configuration of the angles $\psi$, $\theta$, and $\phi$ from a \textit{Yaw-Pitch-Roll matrix}. After doing the same checks, reported in Subsection \ref{subsec::q12}, to verify if the given matrix is a rotation matrix, the script compute angles as
+\begin{gather*}
+	\theta = \texttt{arctan2} \big (-r_{31} \texttt{,} \sqrt{r_{11}^2+r_{21}^2}\big ) \\
+	\psi = \texttt{arctan2} (r_{21} \texttt{,} r_{11}) \\
+	\phi = \texttt{arctan2} (r_{32} \texttt{,} r_{33})
+\end{gather*}
+checking if the configuration is not singular ($\cos \theta \neq 0$). Notice that $r_{ij}$ ($i,j \in \mathbb{N}\small\backslash\{0\}, i \leq 3, j \leq 3$)
+\subsection{Q4.2}
+The matrix $\mathbf{R}$ passed to the function and the respective output angles are shown below
+\begin{gather*}
+	\mathbf{R}= \begin{pmatrix}
+		1& 0 & 0 \\
+		0 & 0 & -1 \\
+		0 & 1 & 0
+	\end{pmatrix} \Rightarrow
+	\psi = 0,\, 
+	\theta = 0,\,\phi = \frac{\pi}{2} 
+\end{gather*}
+It is evident that the matrix $\mathbf{R}$ corresponds to an $\mathbf{R}_x(\phi)$ matrix, as confirmed by the fact that only the angle $\phi$, characteristic of rotation along the $x$-axis, is different from zero.
+\subsection{Q4.3}
+In this case the input and the respective output angles are
+\begin{gather*}
+	\mathbf{R}= \begin{pmatrix}
+		\frac{1}{2}& -\frac{\sqrt{3}}{2} & 0 \\
+		\frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\
+		0 & 0 & 1
+	\end{pmatrix} \Rightarrow
+	\psi = \frac{\pi}{3},\,
+	\theta = 0,\,
+	\phi = 0
+\end{gather*}
+They represent a rotation around the $z$-axis.
+\subsection{Q4.4}
+As represented in
+\begin{gather*}
+	\mathbf{R}= \begin{pmatrix}
+		0 & -\frac{\sqrt{2}}{2} & \frac{\sqrt{2}}{2} \\
+		\frac{1}{2} & \frac{\sqrt{2}\sqrt{3}}{4} & \frac{\sqrt{2}\sqrt{3}}{4} \\
+		-\frac{\sqrt{3}}{2} & \frac{\sqrt{2}}{4} & \frac{\sqrt{2}}{4}
+	\end{pmatrix} \Rightarrow
+	\psi = \frac{\pi}{2},\,
+	\theta = \frac{\pi}{3},\,
+	\phi = \frac{\pi}{4}
+\end{gather*}
+The rotation matrix $\mathbf{R}$ is a composition of three rotation, one for each axis.

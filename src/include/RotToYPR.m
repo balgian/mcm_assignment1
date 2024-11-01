@@ -21,9 +21,15 @@ function [psi,theta,phi] = RotToYPR(R)
         error("R can't be a rotation matrix.")
     end
     
-    psi = atan2(R(3,2), R(3,3));
     theta = atan2(-R(3,1), sqrt(R(1,1)^2 + R(2,1)^2));
-    phi = atan2(R(2,1), R(1,2));
 
+    % Check the singolarity of the configurationss
+    if cos(theta) ~= 0
+        phi = atan2(R(3,2), R(3,3));
+        psi =  atan2(R(2,1), R(1,1));
+    else
+        error("The singolarity is not verify.")
+    end
+    
 end
 

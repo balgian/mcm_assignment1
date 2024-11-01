@@ -1,0 +1,9 @@
+[0] Config.pm:307> INFO - This is Biber 2.19
+[0] Config.pm:310> INFO - Logfile is '/Users/gianmarco/Coding/ModelingAndControlOfManipulators/mcm_assignment1_2024_25/src/MCM_lab1_2024-25/.texpadtmp/main.blg'
+[23] biber-darwin:340> INFO - === Thu Oct 31, 2024, 15:56:50
+[28] Biber.pm:419> INFO - Reading '/Users/gianmarco/Coding/ModelingAndControlOfManipulators/mcm_assignment1_2024_25/src/MCM_lab1_2024-25/.texpadtmp/main.bcf'
+[55] Biber.pm:979> INFO - Found 0 citekeys in bib section 0
+[60] bbl.pm:660> INFO - Writing '/Users/gianmarco/Coding/ModelingAndControlOfManipulators/mcm_assignment1_2024_25/src/MCM_lab1_2024-25/.texpadtmp/main.bbl' with encoding 'UTF-8'
+[60] bbl.pm:763> INFO - Output to /Users/gianmarco/Coding/ModelingAndControlOfManipulators/mcm_assignment1_2024_25/src/MCM_lab1_2024-25/.texpadtmp/main.bbl
+[60] Biber.pm:131> WARN - The file '/Users/gianmarco/Coding/ModelingAndControlOfManipulators/mcm_assignment1_2024_25/src/MCM_lab1_2024-25/.texpadtmp/main.bcf' does not contain any citations!
+[60] Biber.pm:133> INFO - WARNINGS: 1

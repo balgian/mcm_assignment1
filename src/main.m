@@ -16,7 +16,7 @@ addpath('include');
 % theta = sqrt(ro(1)^2 + ro(2)^2 + ro(3)^2);
 % h = ro/theta;
 
-% R = AngleAxisToRot(h,theta);
+% R = AngleAxisToRot(h,theta)
 
 %% 1.2 Rot to angle-axis
 
@@ -36,9 +36,9 @@ addpath('include');
 
 %% 1.3 Euler to rot
 % Case 1
-% psi = 0;
-% theta = 0;
-% phi=pi / 2;
+psi = 0;
+theta = 0;
+phi=pi / 2;
 
 % Case 2
 % psi = pi / 3;
@@ -55,7 +55,7 @@ addpath('include');
 % theta = pi / 2;
 % phi= -pi / 12;
 
-% R = YPRToRot(psi, theta, phi);
+R = YPRToRot(psi, theta, phi);
 
 %% 1.4 Rot to Euler
 

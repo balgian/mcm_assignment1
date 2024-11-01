@@ -6,6 +6,10 @@ function R = AngleAxisToRot(h,theta)
 % Output:
 % R rotation matrix
 
+if abs(norm(h) - 1) > 1e-10
+    error("The axis h must be a unit vector.")
+end
+
 identity = eye(3,3);
 
 if theta == 0

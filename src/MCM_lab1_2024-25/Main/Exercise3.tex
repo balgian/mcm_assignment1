@@ -1,0 +1,47 @@
+\section{Exercise 3} \label{P3}
+
+\subsection{Q3.1}
+The \textit{YPRToRot} function computes $\mathbf{R}$ using the \textit{Yaw-Pitch-Roll} representation
+\begin{gather}
+	\mathbf{R}_\text{YPR} = \mathbf{R}_z(\psi)\mathbf{R}_y(\theta)\mathbf{R}_x(\phi) = \nonumber \\ = \begin{bmatrix}
+\cos\psi \cos\theta & \cos\psi \sin\theta \sin\phi - \sin\psi \cos\phi & \cos\psi \sin\theta \cos\phi + \sin\psi \sin\phi \\
+\sin\psi \cos\theta & \sin\psi \sin\theta \sin\phi + \cos\psi \cos\phi & \sin\psi \sin\theta \cos\phi - \cos\psi \sin\phi \\
+-\sin\theta & \cos\theta \sin\phi & \cos\theta \cos\phi
+\end{bmatrix}
+\end{gather}
+After the \textit{rotation matrix} was checked as in Subsection \ref{subsec::q12}.
+\subsection{Q3.2}
+We have given to the function the inputs $\psi = 0, \theta = 0, \phi = \frac{\pi}{2}$, it means that  $\mathbf{R}_z(\psi) = \mathbf{R}_y(\theta) = \mathbf{I}_{3 \times 3} $ then there will be no rotation around $Z$ and $Y$ axes. The only rotational contribution is around $x$-axis.
+\begin{gather}
+	\mathbf{R}_\text{YPR} = \mathbf{R}_x(\phi) \nonumber = \begin{pmatrix}
+	 1& 0 & 0 \\
+	0 & 0 & -1 \\
+	0 & 1 & 0
+	\end{pmatrix}
+\end{gather} 
+\subsection{Q3.3}
+The angles' composition $\psi = \frac{\pi}{3}, \theta = 0, \phi = 0$, as discussed above has only the rotational contribution around $z$-axis.
+\begin{equation*}
+\mathbf{R}_\text{YPR} =	\mathbf{R}_z(\psi) = \begin{pmatrix}
+        \frac{1}{2}& -\frac{\sqrt{3}}{2} & 0 \\
+        \frac{\sqrt{3}}{2} & \frac{1}{2} & 0 \\
+        0 & 0 & 1
+    \end{pmatrix} 
+\end{equation*}
+\subsection{Q3.4}
+The third case with those three input angles $\psi = \frac{\pi}{3}, \theta = \frac{\pi}{2}, \phi = \frac{\pi}{4}$ is a rotation around all the three axes. The result is the following
+\begin{equation*}
+	\mathbf{R}_\text{YPR} = \begin{pmatrix}
+	 0& \frac{\sqrt{6}}{4} -\frac{\sqrt{2}}{4} & \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4}\\
+	0 & \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4} & \frac{\sqrt{6}}{4} -\frac{\sqrt{2}}{4}  \\
+	-1 & 0 & 0
+	\end{pmatrix} 
+\end{equation*}
+\subsection{Q3.5}
+The parameters are $\psi = 0, \theta = \frac{\pi}{2}, \phi = -\frac{\pi}{12}$ means that there is no rotation around $z$-axis. In fact, the rotation matrix has the contributes of rotation around $y$ and $x$ axes.
+\begin{equation*}
+	\mathbf{R}_\text{YPR} = \mathbf{R}_y(\theta)\mathbf{R}_x(\phi) 
+	= \begin{pmatrix}
+	0 & -\frac{\sqrt{6} - \sqrt{2}}{4} & \frac{\sqrt{6} + \sqrt{2}}{4} \\ 0 & \frac{\sqrt{6} + \sqrt{2}}{4} & \frac{\sqrt{6} - \sqrt{2}}{4} \\ -1 & 0 & 0 \\ 
+	\end{pmatrix} 
+\end{equation*}

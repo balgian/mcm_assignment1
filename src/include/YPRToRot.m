@@ -15,4 +15,10 @@ Rx = [1 0 0; 0 cos(phi) -sin(phi); 0 sin(phi) cos(phi)];
 % Multiply the rotation matrices in the ZYX order
 R = Rz * Ry * Rx;
 
+I = eye(3,3);
+
+if ((det(R) - 1 > 1e-10) || any(abs(R * R' - I) > 1e-10,"all"))
+    error("R can't be a rotation matrix.")
+end
+
 end
